@@ -19,6 +19,7 @@ function resetGame(){
   $('message').className=''; $('message').textContent='';
   $('counter').textContent='';
   $('status').textContent='یاریزانی یەکەم ژمارەکەت تۆماربکە';
+  $('status').classList.remove('hide');
   $('bgtext').textContent='✨ ژمارەکە بدۆزەرەوە ✨';
   $('infoBtn').classList.remove('hide');
   const rb=$('restartBtn'); if(rb) rb.remove();
@@ -80,6 +81,6 @@ $('guessBtn').onclick=()=>{
   else $('message').textContent='⬇️ ژمارە راستەکە زیادترە';
   guessCount++;
   $('counter').textContent = guessCount===5 ? '⚠️ هەوڵی کۆتایی' : guessLabels[guessCount];
+  $('status').classList.add('hide');
   $('guess').value='';
 }
-
