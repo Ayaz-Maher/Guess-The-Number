@@ -3,7 +3,6 @@ const $=id=>document.getElementById(id);
 
 const guessLabels=['','هەوڵی یەکەم','هەوڵی دووەم','هەوڵی سێیەم','هەوڵی چوارەم'];
 
-// Start screen - tap to enter and start music
 $('enterBtn').onclick=()=>{
   $('startScreen').classList.add('hide');
   $('gameArea').classList.remove('hide');
