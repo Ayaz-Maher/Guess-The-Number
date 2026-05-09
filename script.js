@@ -65,7 +65,7 @@ $('guessBtn').onclick=()=>{
   let g=parseInt($('guess').value); if(isNaN(g)) return;
   if(g<0||g>100){$('message').textContent='❌ ژمارە هەڵەیە، تکایە ژمارەیەک هەڵبژێرە لە نێوان 0-100'; $('guess').value=''; return;}
   let d=g-secret;
-  if(d===0){$('message').className='win'; $('message').textContent='🎉🥳 پیرۆزە ژمارەکەت دۆزیەوە!'; showRestart(); return;}
+  if(d===0){$('message').className='win'; $('message').textContent='🎉🥳 پیرۆزە ژمارەکەت دۆزیەوە!'; $('status').classList.add('hide'); showRestart(); return;}
   if(guessCount>=maxGuess){
     $('message').className='win'; $('message').textContent='😢💔 بەداخەوە ژمارەکەت نەدۆزیەوە!';
     $('counter').textContent='یاریەکە تەواوبوو';
