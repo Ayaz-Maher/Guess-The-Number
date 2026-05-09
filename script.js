@@ -3,6 +3,15 @@ const $=id=>document.getElementById(id);
 
 const guessLabels=['','هەوڵی یەکەم','هەوڵی دووەم','هەوڵی سێیەم','هەوڵی چوارەم'];
 
+// Start screen - tap to enter and start music
+$('enterBtn').onclick=()=>{
+  $('startScreen').classList.add('hide');
+  $('gameArea').classList.remove('hide');
+  const music=$('bgMusic');
+  music.volume=0.5;
+  music.play();
+};
+
 ['startBtn','guessBtn'].forEach(id=>setTimeout(()=>$(id).addEventListener('mouseenter',e=>{e.target.style.filter='hue-rotate('+Math.floor(Math.random()*360)+'deg)';}),0));
 
 $('infoBtn').onclick=()=>{
@@ -20,7 +29,6 @@ function resetGame(){
   $('counter').textContent='';
   $('status').textContent='یاریزانی یەکەم ژمارەکەت تۆماربکە';
   $('status').classList.remove('hide');
-  $('bgtext').textContent='✨ ژمارەکە بدۆزەرەوە ✨';
   $('infoBtn').classList.remove('hide');
   const rb=$('restartBtn'); if(rb) rb.remove();
   const rn=$('revealNumber'); if(rn) rn.remove();
@@ -29,7 +37,7 @@ function resetGame(){
 function showRestart(){
   if($('restartBtn')) return;
   const btn=document.createElement('button');
-  btn.id='restartBtn'; btn.textContent='🔄 دووبارە یاری بکە';
+  btn.id='restartBtn'; btn.textContent='دووبارە یاری بکە';
   btn.style.cssText='margin-top:14px;display:block;width:100%';
   btn.addEventListener('mouseenter',e=>{e.target.style.filter='hue-rotate('+Math.floor(Math.random()*360)+'deg)';});
   btn.onclick=resetGame;
@@ -41,7 +49,7 @@ function revealNumber(num){
   const div=document.createElement('div');
   div.id='revealNumber';
   div.style.cssText='margin-top:10px;font-size:20px;font-weight:800;opacity:0;transform:scale(0.4) rotate(-8deg);transition:opacity 0.6s ease,transform 0.6s cubic-bezier(.17,.67,.35,1.4);color:#f7e7a1;';
-  div.textContent='🔢 ژمارە راستەکە ئەمە بوو: '+num;
+  div.textContent='ژمارە راستەکە ئەمە بوو: '+num;
   $('message').after(div);
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
     div.style.opacity='1';
@@ -51,23 +59,22 @@ function revealNumber(num){
 
 $('startBtn').onclick=()=>{
   let n=parseInt($('secret').value);
-  if(isNaN(n)||n<0||n>100){$('message').textContent='❌ ژمارە هەڵەیە، تکایە ژمارەیەک هەڵبژێرە لە نێوان 0-100'; return;}
+  if(isNaN(n)||n<0||n>100){$('message').textContent='ژمارە هەڵەیە، تکایە ژمارەیەک هەڵبژێرە لە نێوان 0-100'; return;}
   secret=n; $('secret').classList.add('hide'); $('startBtn').classList.add('hide');
   $('infoBtn').classList.add('hide'); $('infoBox').classList.add('hide');
   $('guessArea').classList.remove('hide');
   $('status').textContent='یاریزانی دووەم ژمارەکە بدۆزەوە';
-  $('bgtext').textContent='✨ ژمارەکە بدۆزەرەوە ✨';
   guessCount=1; $('counter').textContent=guessLabels[1];
   $('message').textContent='یاری دەستی پێکرد!';
 }
 
 $('guessBtn').onclick=()=>{
   let g=parseInt($('guess').value); if(isNaN(g)) return;
-  if(g<0||g>100){$('message').textContent='❌ ژمارە هەڵەیە، تکایە ژمارەیەک هەڵبژێرە لە نێوان 0-100'; $('guess').value=''; return;}
+  if(g<0||g>100){$('message').textContent='ژمارە هەڵەیە، تکایە ژمارەیەک هەڵبژێرە لە نێوان 0-100'; $('guess').value=''; return;}
   let d=g-secret;
-  if(d===0){$('message').className='win'; $('message').textContent='🎉🥳 پیرۆزە ژمارەکەت دۆزیەوە!'; $('status').classList.add('hide'); showRestart(); return;}
+  if(d===0){$('message').className='win'; $('message').textContent='پیرۆزە ژمارەکەت دۆزیەوە!'; $('status').classList.add('hide'); showRestart(); return;}
   if(guessCount>=maxGuess){
-    $('message').className='win'; $('message').textContent='😢💔 بەداخەوە ژمارەکەت نەدۆزیەوە!';
+    $('message').className='win'; $('message').textContent='بەداخەوە ژمارەکەت نەدۆزیەوە!';
     $('counter').textContent='یاریەکە تەواوبوو';
     $('guessArea').classList.add('hide');
     revealNumber(secret);
@@ -75,12 +82,14 @@ $('guessBtn').onclick=()=>{
     return;
   }
   $('message').className='';
-  if(d>20)$('message').textContent='📈 ژمارە راستەکە کەمترە';
-  else if(d>0)$('message').textContent='⬆️ ژمارە راستەکە کەمترە';
-  else if(d<-20)$('message').textContent='📉 ژمارە راستەکە زیادترە';
-  else $('message').textContent='⬇️ ژمارە راستەکە زیادترە';
+  if(d>25)$('message').textContent='ژمارە راستەکە زۆر کەمترە';
+  else if(d>10)$('message').textContent='ژمارە راستەکە کەمترە';
+  else if(d>0)$('message').textContent='ژمارە راستەکە تۆزێک کەمترە';
+  else if(d<-25)$('message').textContent='ژمارە راستەکە زۆر زیادترە';
+  else if(d<-10)$('message').textContent='ژمارە راستەکە زیادترە';
+  else $('message').textContent='ژمارە راستەکە تۆزێک زیادترە';
   guessCount++;
-  $('counter').textContent = guessCount===5 ? '⚠️ هەوڵی کۆتایی' : guessLabels[guessCount];
+  $('counter').textContent = guessCount===5 ? 'هەوڵی کۆتایی' : guessLabels[guessCount];
   $('status').classList.add('hide');
   $('guess').value='';
 }
