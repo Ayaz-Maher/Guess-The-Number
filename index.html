@@ -1,17 +1,24 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>Number Challenge</title><link rel='stylesheet' href='style.css'></head><body>
-<div class='bgtext' id='bgtext'>✨ FIND THE NUMBER ✨</div>
+<!DOCTYPE html><html dir="rtl" lang="ckb"><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>چاڵنجی ژمارەکە</title><link rel='stylesheet' href='style.css'></head><body>
+<div class='bgtext' id='bgtext'>✨ ژمارەکە بدۆزەرەوە ✨</div>
 <div class='game'>
-<h1>🎯 Number Challenge</h1>
-<div id='status'>Player 1 write your number</div>
+<h1>🎯 چاڵنجی ژمارەکە بدۆزەرەوە</h1>
+<button id='infoBtn'>زانیاری دەربارەی یاریەکە</button>
+<div id='infoBox' class='hide'>
+  <p>ئەم یارییە لەلایەن دوو یاریزان ئەنجام دەدرێت</p>
+  <p>یاسای یارییەکە:</p>
+  <p>یاریزانی یەکەم ژمارەیەک دەنوسێت</p>
+  <p>یاریزانی دووەم دەبێ لە پێنج هەوڵ یان کەمتر ژمارە راستەکە بدۆزێتەوە</p>
+</div>
+<div id='status'>یاریزانی یەکەم ژمارەکەت تۆماربکە</div>
 <div id='counter'></div>
-<input id='secret' type='number' placeholder='Choose number 0-100'>
-<button id='startBtn'>Start Game</button>
+<input id='secret' type='number' placeholder='ژمارەیەک هەڵبژێرە لە 0-100'>
+<button id='startBtn'>یاری دەستپێبکە</button>
 <div id='guessArea' class='hide'>
-<input id='guess' type='number' placeholder='Guess number'>
-<button id='guessBtn'>Guess</button>
+<input id='guess' type='number' placeholder='ژمارەکەت بنوسە'>
+<button id='guessBtn'>ناردن</button>
 </div>
 <div id='message'></div>
+<p id='credits'>Created By Maher Murad & Ayaz Yousif</p>
 </div>
-<p id='credits'>Created by Maher Murad &amp; Ayaz Yousif</p>
 <script src='script.js'></script></body></html>
