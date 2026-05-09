@@ -13,16 +13,3 @@ button:hover{transform:translateY(-2px) scale(1.03);filter:brightness(1.05)}
 #message{min-height:42px;margin-top:14px;font-size:26px;font-weight:900;}
 .win{animation:flash .8s infinite alternate}@keyframes flash{from{transform:scale(1)}to{transform:scale(1.06)}}
 #credits{text-align:center;font-size:14px;font-weight:700;opacity:.75;letter-spacing:1px;margin:14px 0 0 0;}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K46PRHDJ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J93E32BR44"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J93E32BR44');
-</script>
