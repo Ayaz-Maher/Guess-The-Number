@@ -1,5 +1,5 @@
 *{box-sizing:border-box;}
-body{margin:0;font-family:Trebuchet MS,Arial,sans-serif;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;color:#fff;direction:rtl;position:relative;padding:16px 0 24px;}
+body{margin:0;font-family:Trebuchet MS,Arial,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;color:#fff;direction:rtl;position:relative;padding:16px;}
 
 body::before{
   content:'';
@@ -20,7 +20,7 @@ body::after{
 
 .bgtext{position:fixed;top:16px;left:0;right:0;text-align:center;font-size:28px;font-weight:900;letter-spacing:3px;opacity:.22;z-index:2;}
 
-.game{position:relative;z-index:3;width:100%;max-width:480px;margin-top:48px;padding:24px 20px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(0,0,0,.25));box-shadow:0 20px 60px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.25), 0 0 0 1px rgba(255,255,255,.08);backdrop-filter:blur(18px);text-align:center;}
+.game{position:relative;z-index:3;width:100%;max-width:480px;margin-top:0;padding:24px 20px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(0,0,0,.25));box-shadow:0 20px 60px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.25), 0 0 0 1px rgba(255,255,255,.08);backdrop-filter:blur(18px);text-align:center;}
 
 h1{margin:4px 0 10px;font-size:24px;font-weight:900;text-shadow:0 2px 8px rgba(0,0,0,.5);}.hide{display:none}
 #rounds,#status{margin:6px 0;font-weight:900;font-size:17px;text-shadow:0 1px 4px rgba(0,0,0,.5);}
