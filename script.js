@@ -82,3 +82,12 @@ $('guessBtn').onclick=()=>{
   $('counter').textContent = guessCount===5 ? '⚠️ هەوڵی کۆتایی' : guessLabels[guessCount];
   $('guess').value='';
 }
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J93E32BR44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J93E32BR44');
+</script>
