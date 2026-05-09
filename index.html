@@ -1,8 +1,20 @@
 <!DOCTYPE html><html dir="rtl" lang="ckb"><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
 <title>چاڵنجی ژمارەکە</title><link rel='stylesheet' href='style.css'></head><body>
-<div class='bgtext' id='bgtext'>✨ ژمارەکە بدۆزەرەوە ✨</div>
-<div class='game'>
-<h1>🎯 چاڵنجی ژمارەکە بدۆزەرەوە</h1>
+
+<div class='bgtext' id='bgtext'>
+  <span class='bg-title'>کوردستان</span>
+  <span class='bg-sub'>٢+٢=١</span>
+</div>
+
+<!-- Start Screen -->
+<div id='startScreen'>
+  <h2>چاڵنجی ژمارەکە</h2>
+  <button id='enterBtn'>▶ یاری دەستپێبکە</button>
+</div>
+
+<!-- Game -->
+<div class='game hide' id='gameArea'>
+<h1>چاڵنجی ژمارەکە بدۆزەرەوە</h1>
 <button id='infoBtn'>زانیاری دەربارەی یاریەکە</button>
 <div id='infoBox' class='hide'>
   <p>ئەم یارییە لەلایەن دوو یاریزان ئەنجام دەدرێت</p>
@@ -21,7 +33,10 @@
 <div id='message'></div>
 <p id='credits'>Created By Maher Murad & Ayaz Yousif</p>
 </div>
+
+<audio id='bgMusic' src='music.mp3' loop></audio>
 <script src='script.js'></script></body></html>
+
 
 
 <!-- Google tag (gtag.js) -->
